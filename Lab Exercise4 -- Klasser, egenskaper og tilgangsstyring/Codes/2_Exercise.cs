@@ -25,9 +25,9 @@ namespace Lab_Exercise4.Codes
         public class UserAccount
         {
             // Auto-implementerte egenskaper med tilgangsmodifikatorer
-            public string Username { get; } // Brukernavn kan KUN leses utenfra klassen
+            public string Username { get; private set; } // Brukernavn kan KUN leses utenfra klassen
             private string? Password { get; set; } // Passord er privat og kan ikke leses eller endres direkte utenfra klassen
-            public DateTime dateCreated { get; } // Dato (DateTime) for opprettelse av brukerkontoen kan KUN leses utenfra klassen
+            public DateTime dateCreated { get; init; } = DateTime.Now; // Dato (DateTime) for opprettelse av brukerkontoen kan KUN leses utenfra klassen
 
 
             // ----------------------------------------------------------

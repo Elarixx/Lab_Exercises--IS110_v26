@@ -22,9 +22,26 @@ namespace Lab_Exercise4.Codes
         internal class Employee
         {
             // Auto-implementerte egenskaper med tilgangsmodifikatorer
-            public int EmployeeID { get; } // Ansattnummer kan ikke endres etter objektet er opprettet. Kan kun leses utenfra klassen.
+            public int EmployeeID { get; init; } //= (uint)Random.Shared.Next; // Ansattnummer kan ikke endres etter objektet er opprettet. Kan kun leses utenfra klassen.
             public string Name { get; set; } // Navn kan leses og endres utenfra klassen.
-            public int MonthlySalary { get; private set; } // Månedslønn kan leses, men ikke endres direkte utenfra klassen.
+            public decimal MonthlySalary { get; private set; } // Månedslønn kan leses, men ikke endres direkte utenfra klassen.
+        }
+
+        public EmployeeSalary(string name, decimal monthlySalary)
+        {
+            if (monthlySalary < 0)
+            {
+                Console.WriteLine($"{monthlySalary} cannot be negative.");
+                return;
+            }
+
+            Name = name;
+            MonthlySalary = monthlySalary;
+        }
+
+        public void ChangeSalary(double newSalary, Employee authorizer)
+        {
+            
         }
     }
 }
