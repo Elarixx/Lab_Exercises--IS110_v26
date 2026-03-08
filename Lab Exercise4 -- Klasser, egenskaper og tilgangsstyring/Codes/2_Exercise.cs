@@ -29,11 +29,17 @@ namespace Lab_Exercise4.Codes
             private string? Password { get; set; } // Passord er privat og kan ikke leses eller endres direkte utenfra klassen
             public DateTime dateCreated { get; init; } = DateTime.Now; // Dato (DateTime) for opprettelse av brukerkontoen kan KUN leses utenfra klassen
 
+            // Enkel konstruktør for å sette startverdier for brukernavn og passord
+            public UserAccount(string username, string password)
+            {
+                Username = username; // Setter brukernavn ved opprettelse av objektet
+                Password = password; // Setter passord ved opprettelse av objektet
+            }
 
             // ----------------------------------------------------------
             // Metode for å endre passordet på en kontrollert måte
             // ----------------------------------------------------------
-                public bool ChangePassword(string currentPassword, string newPassword) // Metode for å endre passord
+            public bool ChangePassword(string currentPassword, string newPassword) // Metode for å endre passord
                 {
                     if (currentPassword != Password || string.IsNullOrWhiteSpace(newPassword)) // Sjekker om nåværende passord er korrekt og at det nye passordet ikke er tomt eller bare mellomrom
                     {
